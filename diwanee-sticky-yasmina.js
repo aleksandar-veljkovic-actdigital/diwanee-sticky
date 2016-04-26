@@ -52,18 +52,49 @@
 // eof sticky lb/top
 
 
-// VIDEO
-  $(window).load(function () {
-    var offsetAppear = $('.article-video-wrapper').outerHeight(true) - 150;
-    var $wrap = $('.desktop .article-video-wrapper');
-    var $close = $('<span class="vs-close" />');
-    $wrap.parent().css({height: $('.article-video-wrapper').parent().outerHeight(true)});
-    var sticky = $wrap.dwSticky({$stEnd: $('footer.page-wrapper-holder'), offsetAppear: offsetAppear});
-    $wrap.children('.page-wrapper-holder').append($close);
-    $close.click(function () {
-      sticky.destroy();
-      $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').settings.offsetTop = 35;
-      $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').calculateAndSet();
-    });
+// VIDEO DESKTOP
+$(window).load(function () {
+  var offsetAppear = $('.article-video-wrapper').outerHeight(true) - 150;
+  var $wrap = $('.desktop .article-video-wrapper');
+  var $close = $('<span class="vs-close" />');
+  $wrap.parent().css({height: $('.article-video-wrapper').parent().outerHeight(true)});
+  var sticky = $wrap.dwSticky({$stEnd: $('footer.page-wrapper-holder'), offsetAppear: offsetAppear});
+  $wrap.children('.page-wrapper-holder').append($close);
+  $close.click(function () {
+    sticky.destroy();
+    $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').settings.offsetTop = 35;
+    $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').calculateAndSet();
   });
+});
 // eof video
+
+// VIDEO MOBILE
+$(window).load(function () {
+  if ($('html').hasClass('mobile')) {
+
+
+
+    var $wrap = $('.article-video-wrapper');
+    $wrap.parent().css({height: $wrap.parent().outerHeight(true)});
+
+
+
+    var $playerHolder = $('.article-video-holder');
+    var videoStickyMob = function () {
+      var topStartPos = $('.article-video-wrapper').offset()['top'] + $('.article-video-wrapper').outerHeight(false);
+      if ($(window).scrollTop() > topStartPos) {
+        $playerHolder.addClass('sticky')
+      } else {
+        $playerHolder.removeClass('sticky')
+      }
+    }
+    
+    $(window).on('scroll', videoStickyMob);
+
+
+  }
+});
+
+  
+  
+  

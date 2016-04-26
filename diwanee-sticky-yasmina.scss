@@ -16,7 +16,7 @@
 // eof dw-sticky
 
 
-// CC-VIDEO STICKY
+// CC-VIDEO STICKY DESKTOP
 .cc-video article.video {
   $stickyBarHeight: 150px;
   & > .full-wrapper {
@@ -134,3 +134,15 @@
   }
 }
 // eof cc-video sticky
+
+// CC-VIDEO STICKY MOBILE
+.mobile .cc-video article.video {
+
+  .sticky.article-video-holder {
+    position: fixed;
+    bottom: 0;
+
+  }
+}
+
+// eof cc-video sticky mobile
