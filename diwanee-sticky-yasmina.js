@@ -53,11 +53,16 @@
 
 
 // VIDEO
-  $(window).load(function () {
-    var offsetAppear = $('.article-video-wrapper').outerHeight(true) - 150;
-    var $wrap = $('.desktop .article-video-wrapper');
+(function () {  
+  var $wrap = $('.desktop .article-video-wrapper'); 
+  $(document).ready(function () {
+    console.log('doc ready')
+    var offsetAppear = $('.article-video-wrapper').outerHeight(true) - 150;   
     var $close = $('<span class="vs-close" />');
-    $wrap.parent().css({height: $('.article-video-wrapper').parent().outerHeight(true)});
+    
+    console.log($wrap.parent().outerHeight(true));
+    
+    $wrap.parent().css({height: $wrap.parent().outerHeight(true)});
     var sticky = $wrap.dwSticky({$stEnd: $('footer.page-wrapper-holder'), offsetAppear: offsetAppear});
     $wrap.children('.page-wrapper-holder').append($close);
     $close.click(function () {
@@ -65,5 +70,13 @@
       $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').settings.offsetTop = 35;
       $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').calculateAndSet();
     });
-  });
+  }); 
+  $(window).load(function () {
+    $wrap.parent().css({height: ""});
+    console.log($wrap.parent().outerHeight(true));
+    setTimeout(function(){
+      $wrap.parent().css({height: $wrap.parent().outerHeight(true)});
+    }, 0);
+  }); 
+})();
 // eof video
