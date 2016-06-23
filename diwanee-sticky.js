@@ -21,7 +21,7 @@ $.fn.dwSticky = function (settings) {
   toReturn.settings = settings;
   settings.offsetTop = settings.offsetTop || 0;
   settings.offsetBot = settings.offsetBot || 0;
-  settings.offsetAppear = settings.offsetAppear || 0;
+  settings.offsetAppear = settings.offsetAppear || 0; // start sticky when element is beyond top viewport edge (in PX)
   var $stEnd = settings.$stEnd || $();
   if ($stEnd.length < 1) {
     //console.log("dwSticky :: parameters mismach");
@@ -29,31 +29,31 @@ $.fn.dwSticky = function (settings) {
   }
   var $stStart = $stElement.parent();
   var calculateAndSet = function () {
-    var posStart = $stStart.offset()['top'];
-    var posEnd = $stEnd.offset()['top'] - $stElement.outerHeight(true);
-    var posScooll = $(window).scrollTop() + settings.offsetTop;
-    $stElement.css({position: 'fixed'});
-    if (posScooll < posStart + settings.offsetAppear) { // scroled above
-      $stElement.removeClass('dw-sticked');
-      $stElement.css({
-        position: 'relative',
-        top: 'auto'
-      });
-    }
-    else if (posScooll > posEnd - settings.offsetBot) { // scroll below
-      $stElement.addClass('dw-sticked');
-      $stElement.css({
-        position: 'fixed',
-        top: posEnd - posScooll + settings.offsetTop - settings.offsetBot
-      });
-    }
-    else { // sticky area
-      $stElement.addClass('dw-sticked');
-      $stElement.css({
-        position: 'fixed',
-        top: settings.offsetTop
-      });
-    }
+    setTimeout(function () {
+      var posStart = $stStart.offset()['top'];
+      var posEnd = $stEnd.offset()['top'] - $stElement.outerHeight(true);
+      var posScooll = $(window).scrollTop() + settings.offsetTop;
+      $stElement.css({position: 'fixed'});
+      if (posScooll < posStart + settings.offsetAppear) { // scroled above
+        $stElement.removeClass('dw-sticked');
+        $stElement.css({
+          position: 'relative',
+          top: 'auto'
+        });
+      } else if (posScooll > posEnd - settings.offsetBot) { // scroll below
+        $stElement.addClass('dw-sticked');
+        $stElement.css({
+          position: 'fixed',
+          top: posEnd - posScooll + settings.offsetTop - settings.offsetBot
+        });
+      } else { // sticky area
+        $stElement.addClass('dw-sticked');
+        $stElement.css({
+          position: 'fixed',
+          top: settings.offsetTop
+        });
+      }
+    }, 0);    
   };
   // event bindings
   $(window).on('scroll', calculateAndSet);

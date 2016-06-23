@@ -1,0 +1,13 @@
+.desktop {
+  #ad-above-fold-MPU-holder {
+    width: 300px;
+    margin-right: 7px;
+    & > iframe {
+      display: block;
+    }
+    @include breakpoint(mobile) {
+      position: static!important;
+      margin: 0 auto;
+    }
+  }
+}
