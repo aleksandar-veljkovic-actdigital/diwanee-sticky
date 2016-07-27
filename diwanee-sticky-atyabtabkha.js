@@ -4,9 +4,9 @@
 
   
   var stEnd = 0 || 
-          $('.page-homepage .w-featured-cookbooks')[0] ||
+          $('.page-homepage .w-featured-cookbooks')[0] /*||
           $('.tpl-ingredient-listing .w-pagination--center')[0] || 
-          $('.tpl-ingredient-detail .w-pagination--center')[0];
+          $('.tpl-ingredient-detail .w-pagination--center')[0]; */
   
   var offsetTop = 35;
   var offsetBot = 0;
