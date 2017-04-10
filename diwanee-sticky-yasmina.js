@@ -8,11 +8,11 @@
 // eof sticky mpu
 
 
-// STICKY LB/TOP 
+// STICKY LB/TOP
 (function () {
   var stickyKickStart = function ($target, $stEnd, offsetBot) {
     offsetBot = offsetBot || 0;
-    var jobLB = function () {      
+    var jobLB = function () {
       if ($target.hasClass('observed')){
         $target.parent().css({height:""});
         $target.data('dwSticky').destroy();
@@ -53,17 +53,22 @@
 
 
 // VIDEO
-  $(window).load(function () {
-    var offsetAppear = $('.article-video-wrapper').outerHeight(true) - 150;
-    var $wrap = $('.desktop .article-video-wrapper');
-    var $close = $('<span class="vs-close" />');
-    $wrap.parent().css({height: $('.article-video-wrapper').parent().outerHeight(true)});
-    var sticky = $wrap.dwSticky({$stEnd: $('footer.page-wrapper-holder'), offsetAppear: offsetAppear});
-    $wrap.children('.page-wrapper-holder').append($close);
-    $close.click(function () {
-      sticky.destroy();
-      $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').settings.offsetTop = 35;
-      $('.desktop #ad-above-fold-MPU-holder').data('dwSticky').calculateAndSet();
+  $(window).load(function () {    
+    
+    var $el = $('.article-video-wrapper .video-player');
+    var $container = $el.parent()
+    $container.css({height: $el.parent().outerHeight(true)});
+    $container.on('horizons', function(event, horizon){
+      if (horizon.b === "north") {
+        $el.css({position: 'fixed', right: 0, bottom: 0});
+        console.log('north');
+        
+      }
+      else {
+        $el.css({position: "", right: "", bottom: ""});
+        console.log('not north');
+      }      
     });
+
   });
 // eof video
