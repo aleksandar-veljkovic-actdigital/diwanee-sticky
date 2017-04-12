@@ -2,7 +2,8 @@
 
 ;// STICKY MPU
 (function () {
-  var offsetTop = ($('.article-video-wrapper').length > 0) ? 185 : 35;
+  //var offsetTop = ($('.article-video-wrapper').length > 0) ? 185 : 35;
+  var offsetTop = 35;
   $('.desktop #ad-above-fold-MPU-holder').dwSticky({offsetTop: offsetTop, $stEnd: $('#ad-SE-holder')});
 })();
 // eof sticky mpu
@@ -53,22 +54,40 @@
 
 
 // VIDEO
-  $(window).load(function () {    
-    
-    var $el = $('.article-video-wrapper .video-player');
-    var $container = $el.parent()
-    $container.css({height: $el.parent().outerHeight(true)});
-    $container.on('horizons', function(event, horizon){
-      if (horizon.b === "north") {
-        $el.css({position: 'fixed', right: 0, bottom: 0});
-        console.log('north');
-        
-      }
-      else {
-        $el.css({position: "", right: "", bottom: ""});
-        console.log('not north');
-      }      
-    });
-
+(function () {
+  //selectors
+  var $el = $('.article-video-wrapper .video-player');
+  var $container = $el.parent();
+  var playerSelectorStr = '.ytplayer, video';  
+  //event handlers
+  var onPlay = function () {
+    $container.css({height: $el.parent().outerHeight(false)});
+    if (!$container.hasClass('video-sticky-initialized')) {
+      $container.addClass('video-sticky-initialized');
+      $container.on('horizons', function (event, horizon) {
+        if (horizon.b === "north") {
+          $el.addClass('sticky-video');
+          $el.addClass('ux-trigger');
+          setTimeout(function () {
+            $el.removeClass('ux-trigger');
+          }, 0);
+        } else {
+          $el.removeClass('sticky-video');
+        }
+      });
+    }
+  };  
+  var onEnded = function(){
+    $container.off('horizons');
+    $container.removeClass('video-sticky-initialized');
+    $el.removeClass('sticky-video');
+  };
+  var $player = $();
+  observeDOM($container[0], function(){
+    $player.off('play playing ended');
+    $player = $el.find(playerSelectorStr);
+    $player.on('play playing', onPlay);
+    $player.on('ended', onEnded);
   });
+})();
 // eof video
