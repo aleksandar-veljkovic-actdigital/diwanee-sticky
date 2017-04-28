@@ -1,3 +1,4 @@
+;(function($){
 /*
  (function () {
  var originalAddClassMethod = jQuery.fn.addClass;
@@ -102,3 +103,4 @@ var observeDOM = function (obj, callback) {
     //obj.addEventListener('DOMNodeRemoved', callback, false);
   }
 };
+})(jQuery);
