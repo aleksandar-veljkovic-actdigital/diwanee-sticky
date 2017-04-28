@@ -36,24 +36,27 @@ $.fn.dwSticky = function (settings) {
       $stElement.css({position: 'fixed'});
       if (posScooll < posStart + settings.offsetAppear) { // scroled above
         $stElement.removeClass('dw-sticked');
+        $stElement.removeClass('dw-sticked-basement');
         $stElement.css({
           position: 'relative',
           top: 'auto'
         });
       } else if (posScooll > posEnd - settings.offsetBot) { // scroll below
         $stElement.addClass('dw-sticked');
+        $stElement.addClass('dw-sticked-basement');
         $stElement.css({
           position: 'fixed',
           top: posEnd - posScooll + settings.offsetTop - settings.offsetBot
         });
       } else { // sticky area
         $stElement.addClass('dw-sticked');
+        $stElement.removeClass('dw-sticked-basement');
         $stElement.css({
           position: 'fixed',
           top: settings.offsetTop
         });
       }
-    }, 0);    
+    }, 0);
   };
   // event bindings
   $(window).on('scroll', calculateAndSet);
@@ -99,5 +102,3 @@ var observeDOM = function (obj, callback) {
     //obj.addEventListener('DOMNodeRemoved', callback, false);
   }
 };
-
-
