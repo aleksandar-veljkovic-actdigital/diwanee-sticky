@@ -86,7 +86,7 @@ $.fn.dwSticky = function (settings) {
 };
 // eof sticky  prototype
 
-var observeDOM = function (obj, callback) {
+window.observeDOM = function (obj, callback) {
   if (typeof (obj) === "undefined") {
     return false;
   }
