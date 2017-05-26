@@ -54,11 +54,12 @@
 
 
 // VIDEO
+/*
 (function () {
   //selectors
   var $el = $('.article-video-wrapper .video-player');
   var $container = $el.parent();
-  var playerSelectorStr = '.ytplayer, video';  
+  var playerSelectorStr = '.ytplayer, video';
   //event handlers
   var onPlay = function () {
     $container.css({height: $el.parent().outerHeight(false)});
@@ -76,7 +77,7 @@
         }
       });
     }
-  };  
+  };
   var onEnded = function(){
     $container.off('horizons');
     $container.removeClass('video-sticky-initialized');
@@ -90,4 +91,5 @@
     $player.on('ended', onEnded);
   });
 })();
+*/
 // eof video
