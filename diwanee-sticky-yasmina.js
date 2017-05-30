@@ -58,7 +58,7 @@
   //selectors
   var $el = $('.article-video-wrapper .video-player');
   var $container = $el.parent();
-  var playerSelectorStr = '.ytplayer, video';  
+  var playerSelectorStr = '.ytplayer, video';
   //event handlers
   var onPlay = function () {
     $container.css({height: $el.parent().outerHeight(false)});
@@ -76,7 +76,7 @@
         }
       });
     }
-  };  
+  };
   var onEnded = function(){
     $container.off('horizons');
     $container.removeClass('video-sticky-initialized');
@@ -89,5 +89,18 @@
     $player.on('play playing', onPlay);
     $player.on('ended', onEnded);
   });
+  // dynamic Ad banner positioning
+  var dynamicAdHandler = function(ev){
+    if (!$el.hasClass('sticky-video')) {
+      $el.css({bottom: ""});
+      return;
+    }
+    var bot = $('.ad--roadblock-inner').outerHeight(true);
+    console.log(bot)
+    $el.css({bottom: bot});
+  }
+  //$(document).on('ready', dynamicAdHandler);
+  //$(window).on('load resize', dynamicAdHandler);
+  setInterval(dynamicAdHandler, 500);
 })();
 // eof video
