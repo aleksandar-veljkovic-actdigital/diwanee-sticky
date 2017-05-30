@@ -96,7 +96,6 @@
       return;
     }
     var bot = $('.ad--roadblock-inner').outerHeight(true);
-    console.log(bot)
     $el.css({bottom: bot});
   }
   //$(document).on('ready', dynamicAdHandler);
