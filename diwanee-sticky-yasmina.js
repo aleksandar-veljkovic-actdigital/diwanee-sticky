@@ -43,7 +43,7 @@
   stEndList = stEndList.concat($(".cc-slideshow article .w__desk--right").toArray());
   stEndList = stEndList.concat($(".tpl-personalityTest-detail article .w__desk--right").toArray());
   stEndList = stEndList.concat($(".tpl-homepage .b__hero--hp").toArray());
-  stEndList = stEndList.concat($("body  > .page-wrapper-holder").toArray());
+  stEndList = stEndList.concat($("body:not('.tpl-videos')  > .page-wrapper-holder").toArray());
   var $stEndList = $(stEndList);
   // lb
   stickyKickStart($('.desktop #ad-above-fold-LB-holder'), $($stEndList).eq(0));
@@ -98,7 +98,7 @@
     var bot = $('.ad--roadblock-inner').outerHeight(true);
     if (bot!==0) {
       $el.css({bottom: bot});
-    }    
+    }
   }
   //$(document).on('ready', dynamicAdHandler);
   //$(window).on('load resize', dynamicAdHandler);
