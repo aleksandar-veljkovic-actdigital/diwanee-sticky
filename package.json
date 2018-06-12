@@ -1,0 +1,19 @@
+{
+  "name": "diwanee-sticky",
+  "version": "1.0.14",
+  "description": "App for sticky front-end dom elements on Diwanee publications.",
+  "main": "diwanee-sticky.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biosonic/diwanee-sticky.git"
+  },
+  "author": "Aleksandar Veljkovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biosonic/diwanee-sticky/issues"
+  },
+  "homepage": "https://github.com/biosonic/diwanee-sticky#readme"
+}
