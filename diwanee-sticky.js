@@ -23,6 +23,7 @@ $.fn.dwSticky = function (settings) {
   settings.offsetTop = settings.offsetTop || 0;
   settings.offsetBot = settings.offsetBot || 0;
   settings.offsetAppear = settings.offsetAppear || 0; // start sticky when element is beyond top viewport edge (in PX)
+  settings.offPosition = settings.offPosition || 'relative';
   var $stEnd = settings.$stEnd || $();
   if ($stEnd.length < 1) {
     //console.log("dwSticky :: parameters mismach");
@@ -30,7 +31,6 @@ $.fn.dwSticky = function (settings) {
   }
   var $stStart = $stElement.parent();
   var calculateAndSet = function () {
-    setTimeout(function () {
       var posStart = $stStart.offset()['top'];
       var posEnd = $stEnd.offset()['top'] - $stElement.outerHeight(true);
       var posScooll = $(window).scrollTop() + settings.offsetTop;
@@ -39,7 +39,7 @@ $.fn.dwSticky = function (settings) {
         $stElement.removeClass('dw-sticked');
         $stElement.removeClass('dw-sticked-basement');
         $stElement.css({
-          position: 'relative',
+          position: settings.offPosition,
           top: 'auto'
         });
       } else if (posScooll > posEnd - settings.offsetBot) { // scroll below
@@ -57,7 +57,6 @@ $.fn.dwSticky = function (settings) {
           top: settings.offsetTop
         });
       }
-    }, 0);
   };
   // event bindings
   $(window).on('scroll', calculateAndSet);
@@ -65,7 +64,7 @@ $.fn.dwSticky = function (settings) {
   $(document).on('ready', calculateAndSet);
   $(window).on('load', calculateAndSet);
   $stElement.addClass('dw-sticky');
-  calculateAndSet();
+  setTimeout(function () {calculateAndSet();}, 0);
   //$stElement.one('classAdded', calculateAndSet);
   toReturn.destroy = function () {
     $(window).off('scroll', calculateAndSet);
