@@ -1,6 +1,5 @@
 {
   "name": "diwanee-sticky",
-  "version": "1.0.14",
   "description": "App for sticky front-end dom elements on Diwanee publications.",
   "main": "diwanee-sticky.js",
   "scripts": {
