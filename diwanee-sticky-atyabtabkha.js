@@ -19,7 +19,7 @@
     offsetBot = 25;
   }  
   
-  $('.desktop #ad-above-fold-MPU-holder').dwSticky({offsetBot: offsetBot, offsetTop: offsetTop, $stEnd: $(stEnd)});
+  $('.desktop #ad-above-fold-MPU-holder, .desktop #gpt-ad-atf-mpu').dwSticky({offsetBot: offsetBot, offsetTop: offsetTop, $stEnd: $(stEnd)});
   
 })();
 // eof sticky mpu
