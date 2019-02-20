@@ -4,7 +4,7 @@
 (function () {
   //var offsetTop = ($('.article-video-wrapper').length > 0) ? 185 : 35;
   var offsetTop = 35;
-  $('.desktop #ad-above-fold-MPU-holder').dwSticky({offsetTop: offsetTop, $stEnd: $('#ad-SE-holder')});
+  $('.desktop #gpt-ad-atf-mpu').dwSticky({offsetTop: offsetTop, $stEnd: $('#gpt-ad-atf-spec-exec')});
 })();
 // eof sticky mpu
 
@@ -46,9 +46,9 @@
   stEndList = stEndList.concat($("body:not('.tpl-videos')  > .page-wrapper-holder").toArray());
   var $stEndList = $(stEndList);
   // lb
-  stickyKickStart($('.desktop #ad-above-fold-LB-holder'), $($stEndList).eq(0));
+  stickyKickStart($('.desktop #gpt-ad-atf-lb'), $($stEndList).eq(0));
   // top
-  stickyKickStart($('.desktop #ad-top-holder'), $($stEndList).eq(0));
+  stickyKickStart($('.desktop #gpt-ad-atf-top'), $($stEndList).eq(0));
 })();
 // eof sticky lb/top
 
