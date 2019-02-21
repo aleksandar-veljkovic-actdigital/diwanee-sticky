@@ -4,7 +4,8 @@
 .desktop {
   .takeover-ad--top, .ad-above-fold-LB {
     //overflow: visible;
-    #ad-above-fold-LB-holder.dw-sticky, #ad-top-holder.dw-sticky {
+    #ad-above-fold-LB-holder.dw-sticky, #ad-top-holder.dw-sticky,
+    #gpt-ad-atf-lb.dw-sticky, #gpt-ad-atf-top.dw-sticky {
       z-index: 1000;
       width: 100%;
       iframe {
