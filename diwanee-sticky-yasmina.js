@@ -39,7 +39,7 @@
   //stEndList = stEndList.concat($(".cc-video article.video figure.video-player").toArray());
   stEndList = stEndList.concat($('.tpl-homepage .full-wrapper .hp-hero-slider-wrapper').toArray());
   stEndList = stEndList.concat($('.tpl-topic-fashion-landing .full-wrapper .fashion-promoted-slider').toArray());
-  stEndList = stEndList.concat($(".cc-video .ad--subnavigation").toArray());
+  stEndList = stEndList.concat($(".cc-video article.video:eq(0)").toArray());
   stEndList = stEndList.concat($(".cc-article article .w__desk--right").toArray());
   stEndList = stEndList.concat($(".cc-event article .w__desk--right").toArray());
   stEndList = stEndList.concat($(".cc-slideshow article .w__desk--right").toArray());
