@@ -4,7 +4,7 @@
 (function () {
   //var offsetTop = ($('.article-video-wrapper').length > 0) ? 185 : 35;
   var offsetTop = 35;
-  $('.desktop #gpt-ad-atf-mpu').dwSticky({offsetTop: offsetTop, $stEnd: $('#gpt-ad-atf-spec-exec')});
+  $('.desktop #gpt-ad-atf-mpu').dwSticky({offsetTop: offsetTop, $stEnd: $('#spec-exec-wrap')});
 })();
 // eof sticky mpu
 
