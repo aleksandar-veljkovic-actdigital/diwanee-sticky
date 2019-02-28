@@ -2,9 +2,16 @@
 
 ;// STICKY MPU
 (function () {
+  
+  var stEndList = [];
+  stEndList = stEndList.concat( $('#spec-exec-wrap').toArray() );
+  stEndList = stEndList.concat( $('.weekly-pick-wrapper').parent().toArray() );
+  $stEnd = $(stEndList).eq(0);
+  
+  
   //var offsetTop = ($('.article-video-wrapper').length > 0) ? 185 : 35;
   var offsetTop = 35;
-  $('.desktop #gpt-ad-atf-mpu').dwSticky({offsetTop: offsetTop, $stEnd: $('#spec-exec-wrap')});
+  $('.desktop #gpt-ad-atf-mpu').dwSticky({offsetTop: offsetTop, $stEnd: $stEnd});
 })();
 // eof sticky mpu
 
