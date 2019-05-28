@@ -1,9 +1,11 @@
 
 
 ;// STICKY MPU
-(function () {
+window.stickyMPU = function($el, stEndlist) {
   
-  var stEndList = [];
+  $el = $el || $('.desktop #gpt-ad-atf-mpu');
+  stEndList = stEndlist || [];
+  stEndList = stEndList.concat( $('.cc-article .article-footer').toArray() );
   stEndList = stEndList.concat( $('#spec-exec-wrap').toArray() );
   stEndList = stEndList.concat( $('.weekly-pick-wrapper').parent().toArray() );
   $stEnd = $(stEndList).eq(0);
@@ -11,8 +13,9 @@
   
   //var offsetTop = ($('.article-video-wrapper').length > 0) ? 185 : 35;
   var offsetTop = 35;
-  $('.desktop #gpt-ad-atf-mpu').dwSticky({offsetTop: offsetTop, $stEnd: $stEnd});
-})();
+  $el.dwSticky({offsetTop: offsetTop, $stEnd: $stEnd});
+};
+window.stickyMPU();
 // eof sticky mpu
 
 
